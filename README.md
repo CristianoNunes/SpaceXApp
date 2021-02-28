@@ -1,4 +1,4 @@
-# spacexapp
+# SpaceXApp
 
 ## Project setup
 ```
