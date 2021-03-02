@@ -1,6 +1,6 @@
 <template>
   <div class="card-expansion">
-    <md-card>
+    <md-card class="md-elevation-8">
       <md-card-media>
         <img :src="changeSrcImg" alt="Rocket" class="imgRocket">
       </md-card-media>
@@ -23,7 +23,7 @@
 
         <md-card-expand-content>
           <md-card-content>
-            {{launch.details}}
+            {{changeDetails}}
           </md-card-content>
         </md-card-expand-content>
       </md-card-expand>
@@ -41,7 +41,13 @@ export default {
         return rocket;
       }
       return this.launch.links.patch.small;
-    }
+    },
+    changeDetails: function() {
+      if(!this.launch.details){
+        return 'Without description';
+      }
+      return this.launch.details;
+    },
   }
 }
 </script>
