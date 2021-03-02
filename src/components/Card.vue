@@ -2,7 +2,7 @@
   <div class="card-expansion">
     <md-card>
       <md-card-media>
-        <img :src="launch.links.patch.small" alt="Rocket">
+        <img :src="changeSrcImg" alt="Rocket" class="imgRocket">
       </md-card-media>
 
       <md-card-header>
@@ -33,10 +33,32 @@
 
 <script>
 export default {
-  props: ["launch"]
+  props: ["launch"],
+  computed: {
+    changeSrcImg: function() {
+      const rocket = require('../assets/rocket.png');
+      if(!this.launch.links.patch.small){
+        return rocket;
+      }
+      return this.launch.links.patch.small;
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
+  .card-expansion {
+    height: 50%;
+  }
 
+  .md-card {
+    width: 320px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .imgRocket {
+    height: 300px;
+    width: 300px;
+  }
 </style>
