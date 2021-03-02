@@ -8,6 +8,7 @@
       <md-card-header>
         <div class="md-title">{{launch.name}}</div>
         <div class="md-subhead">Release date of: {{launchDate}}</div>
+        <div class="md-subhead">Mission Status: {{missionAccomplished}}</div>
       </md-card-header>
 
       <md-card-expand>
@@ -51,6 +52,12 @@ export default {
     },
     launchDate: function() {
       return moment(this.launch.date_local).format("MM/DD/YYYY");
+    },
+    missionAccomplished: function() {
+      if(!this.launch.success){
+        return 'Not yet released';
+      }
+      return 'Mission Accomplished';
     }
   }
 }
