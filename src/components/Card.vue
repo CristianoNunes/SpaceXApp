@@ -7,7 +7,7 @@
 
       <md-card-header>
         <div class="md-title">{{launch.name}}</div>
-        <div class="md-subhead">Data</div>
+        <div class="md-subhead">Release date of: {{launchDate}}</div>
       </md-card-header>
 
       <md-card-expand>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 export default {
   props: ["launch"],
   computed: {
@@ -48,6 +49,9 @@ export default {
       }
       return this.launch.details;
     },
+    launchDate: function() {
+      return moment(this.launch.date_local).format("MM/DD/YYYY");
+    }
   }
 }
 </script>
