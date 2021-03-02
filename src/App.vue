@@ -9,12 +9,12 @@
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
+        <md-toolbar class="md-transparent" md-elevation="0">Menu</md-toolbar>
 
         <md-list>
           <md-list-item>
             <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
+            <span class="md-list-item-text">Future Launches</span>
           </md-list-item>
 
           <md-list-item>
@@ -33,35 +33,25 @@
           </md-list-item>
         </md-list>
       </md-app-drawer>
-
+        
       <md-app-content>
-        <div class="container">  
-          <Card v-for="launch in launches" :key="launch.id" :launch="launch" />
-        </div>
+        <Home />
       </md-app-content>
     </md-app>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Card from './components/Card';
+import Home from './pages/Home';
 export default {
   name: 'App',
   data: () => {
     return {
-      launches: [],
       menuVisible: false,
     }
   },
   components: {
-    Card,
-  },
-  async created() {
-    const { data } = await axios.get('https://api.spacexdata.com/v4/launches/upcoming');
-    data.forEach(launch => {
-      this.launches.push(launch);
-    });
+    Home,
   }
 }
 </script>
@@ -74,11 +64,6 @@ export default {
   .md-drawer {
     width: 230px;
     max-width: calc(100vw - 125px);
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
 </style>
