@@ -9,6 +9,8 @@
         <div class="md-title">{{launch.name}}</div>
         <div class="md-subhead">Release date of: {{launchDate}}</div>
         <div class="md-subhead">Mission Status: {{missionAccomplished}}</div>
+        <div class="md-subhead">Payload: </div>
+        <div class="md-subhead">Crew: {{missionCrew}}</div>
       </md-card-header>
 
       <md-card-expand>
@@ -58,6 +60,12 @@ export default {
         return 'Not yet released';
       }
       return 'Mission Accomplished';
+    },
+    missionCrew: function() {
+      if(this.launch.crew.length == 0){
+        return 'No crew yet';
+      }
+      return 'this.launch.crew';
     }
   }
 }
