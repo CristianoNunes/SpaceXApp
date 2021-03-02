@@ -2,12 +2,12 @@
   <div class="card-expansion">
     <md-card>
       <md-card-media>
-        <img src="/assets/examples/card-image-1.jpg" alt="People">
+        <img :src="launch.links.patch.small" alt="Rocket">
       </md-card-media>
 
       <md-card-header>
-        <div class="md-title">Title goes here</div>
-        <div class="md-subhead">Subtitle here</div>
+        <div class="md-title">{{launch.name}}</div>
+        <div class="md-subhead">Data</div>
       </md-card-header>
 
       <md-card-expand>
@@ -23,7 +23,7 @@
 
         <md-card-expand-content>
           <md-card-content>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+            {{launch.details}}
           </md-card-content>
         </md-card-expand-content>
       </md-card-expand>
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-
+  props: ["launch"]
 }
 </script>
 
