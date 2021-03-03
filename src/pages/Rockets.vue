@@ -1,46 +1,46 @@
 <template>
   <div class="main">
-    <span class="md-display-1 titleAlign">Future Launches</span>
+    <span class="md-display-1 titleAlign">Rockets</span>
     <div class="divSearch">
-      <input type="text" class="searchInput" placeholder="Search for future releases" v-model="search" />
+      <input type="text" class="searchInput" placeholder="Rocket search" v-model="search" />
       <md-button class="md-raised md-primary" @click="resultSearch">Search</md-button>
     </div>
     <div class="container">
-      <Card v-for="launch in filteredLaunchs" :key="launch.id" :launch="launch" />
+      <CardRocket v-for="rocket in filteredRockets" :key="rocket.id" :rocket="rocket" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import Card from '../components/Card';
+import CardRocket from '../components/CardRocket';
 export default {
   data: () => {
     return {
       search: '',
-      filteredLaunchs: [],
-      launches: [],
+      filteredRockets: [],
+      rockets: [],
     }
   },
   components: {
-    Card,
+    CardRocket,
   },
   methods: {
     resultSearch: function() {
-      this.filteredLaunchs = this.launches;
+      this.filteredRockets = this.rockets;
       if(this.search == '' || this.search == ' '){
-        return this.filteredLaunchs = this.launches;
+        return this.filteredRockets = this.rockets;
       }else {
-        return this.filteredLaunchs = this.launches.filter(launche => launche.name.match(this.search));
+        return this.filteredRockets = this.rockets.filter(rocket => rocket.name.match(this.search));
       }
     }
   },
   async created() {
-    const { data } = await axios.get('https://api.spacexdata.com/v4/launches/upcoming');
-    data.forEach(launch => {
-      this.launches.push(launch);
+    const { data } = await axios.get('https://api.spacexdata.com/v4/rockets');
+    data.forEach(rocket => {
+      this.rockets.push(rocket);
     });
-    this.filteredLaunchs = this.launches;
+    this.filteredRockets = this.rockets;
   }
 }
 </script>

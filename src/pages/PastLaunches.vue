@@ -2,7 +2,7 @@
   <div class="main">
     <span class="md-display-1 titleAlign">Past Launches</span>
     <div class="divSearch">
-      <input type="text" class="searchInput" placeholder="Pesquisar por lançamento" v-model="search" />
+      <input type="text" class="searchInput" placeholder="Search for launches carried out" v-model="search" />
       <md-button class="md-raised md-primary" @click="resultSearch">Search</md-button>
     </div>
     <div class="container">

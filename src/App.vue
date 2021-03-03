@@ -35,7 +35,9 @@
 
           <md-list-item>
             <md-icon :md-src="rocket" />
-            <span class="md-list-item-text">Rocket</span>
+            <router-link to="/Rockets">
+              <span class="md-list-item-text">Rockets</span>
+            </router-link>
           </md-list-item>
         </md-list>
       </md-app-drawer>
