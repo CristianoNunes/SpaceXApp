@@ -13,13 +13,17 @@
 
         <md-list>
           <md-list-item>
-            <md-icon>flight</md-icon>
-            <span class="md-list-item-text">Future Launches</span>
+            <a href="/">
+              <md-icon>flight</md-icon>
+              <span class="md-list-item-text">Future Launches</span>
+            </a>
           </md-list-item>
 
           <md-list-item>
-            <md-icon>flight_land</md-icon>
-            <span class="md-list-item-text">Past Launches</span>
+            <a href="/pastlaunche">
+              <md-icon>flight_land</md-icon>
+              <span class="md-list-item-text">Past Launches</span>
+            </a>
           </md-list-item>
 
           <md-list-item>
