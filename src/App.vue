@@ -13,22 +13,24 @@
 
         <md-list>
           <md-list-item>
-            <a href="/">
-              <md-icon>flight</md-icon>
-              <span class="md-list-item-text">Future Launches</span>
-            </a>
+            <md-icon>flight</md-icon>
+              <router-link to="/">
+                <span class="md-list-item-text">Future Launches</span>
+              </router-link>
           </md-list-item>
 
           <md-list-item>
-            <a href="/pastlaunche">
-              <md-icon>flight_land</md-icon>
-              <span class="md-list-item-text">Past Launches</span>
-            </a>
+            <md-icon>flight_land</md-icon>
+            <router-link to="/pastlaunche">
+              <span class="md-list-item-text linkMenu">Past Launches</span>
+            </router-link>
           </md-list-item>
 
           <md-list-item>
             <md-icon>history_edu</md-icon>
-            <span class="md-list-item-text">Historical Events</span>
+            <router-link to="/HistoricalEvents">
+              <span class="md-list-item-text">Historical Events</span>
+            </router-link>
           </md-list-item>
 
           <md-list-item>
@@ -69,6 +71,4 @@ export default {
     width: 230px;
     max-width: calc(100vw - 125px);
   }
-
 </style>
-

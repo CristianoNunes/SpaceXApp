@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import FutureLaunches from '../pages/FutureLaunches';
 import PastLaunches from '../pages/PastLaunches';
+import HistoricalEvents from '../pages/HistoricalEvents';
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: '/pastlaunche',
     component: PastLaunches
+  },
+  {
+    path: '/HistoricalEvents',
+    component: HistoricalEvents
   }
 ];
 
