@@ -9,6 +9,7 @@
         <div class="md-title">{{rocket.name}}</div>
         <div class="md-subhead">Company: {{rocket.company}}</div>
         <div class="md-subhead">Type: {{rocket.type}}</div>
+        <div class="md-subhead">Cost per launche: {{rocket.cost_per_launch}}</div>
         <div class="md-subhead">First Flight: {{firstFlightDate}}</div>
       </md-card-header>
 
@@ -34,13 +35,6 @@ import moment from 'moment';
 export default {
   props: ["rocket"],
   computed: {
-    // changeSrcImg: function() {
-    //   const rocketImg = require('../assets/rocket.png');
-    //   if(!this.rocket.links.patch.small){
-    //     return rocketImg;
-    //   }
-    //   return this.launch.links.patch.small;
-    // },
     changeDetails: function() {
       if(!this.rocket.description){
         return 'Without description';

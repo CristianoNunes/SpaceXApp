@@ -9,14 +9,12 @@
         <div class="md-title">{{launch.name}}</div>
         <div class="md-subhead">Release date of: {{launchDate}}</div>
         <div class="md-subhead">Mission Status: {{missionAccomplished}}</div>
-        <div class="md-subhead">Payload: {{this.getPayload}}</div>
-        <div class="md-subhead">Crew: {{missionCrew}}</div>
       </md-card-header>
 
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
           <div>
-            <!-- <md-button></md-button> -->
+            <md-button> <router-link to=""> View all data </router-link> </md-button>
           </div>
 
           <md-card-expand-trigger>
@@ -36,30 +34,8 @@
 
 <script>
 import moment from 'moment';
-import axios from 'axios';
 export default {
   props: ["launch"],
-  data:() => {
-    return {
-      payloads:[]
-    }
-  },
-  methods:{
-    getPayloadAPI: async function (payload) {
-      const { data } = await axios.get('https://api.spacexdata.com/v4/payloads/'+ payload);
-      this.payloads.push(data);
-      return this.payloads[0].name;
-    },
-  },
-  watch: {
-    getPayload: function () {
-    // const { data } = axios.get('https://api.spacexdata.com/v4/payloads/'+ payload);
-    // this.payloads.push(data);
-    const valuePayload = this.getPayloadAPI(this.launch.payloads);  
-    return valuePayload.name;
-    // return this.payloads[0].name;
-    },
-  },
   computed: {
     changeSrcImg: function() {
       const rocket = require('../assets/rocket.png');

@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import axios from 'axios';
 import CardHistory from '../components/CardHistory';
+import { api } from '../services/api';
+
 export default {
   data: () => {
     return {
@@ -20,7 +21,7 @@ export default {
     CardHistory,
   },
   async created() {
-    const { data } = await axios.get('https://api.spacexdata.com/v4/history');
+    const { data } = await api.get('history');
     data.forEach(history => {
       this.historys.push(history);
     });

@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Card from '../components/Card';
+import { api } from '../services/api';
+
 export default {
   data: () => {
     return {
@@ -33,10 +34,10 @@ export default {
       }else {
         return this.filteredLaunchs = this.launches.filter(launche => launche.name.match(this.search));
       }
-    }
+    },
   },
   async created() {
-    const { data } = await axios.get('https://api.spacexdata.com/v4/launches/upcoming');
+    const { data } = await api.get('launches/upcoming');
     data.forEach(launch => {
       this.launches.push(launch);
     });

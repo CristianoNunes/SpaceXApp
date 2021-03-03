@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import axios from 'axios';
 import CardRocket from '../components/CardRocket';
+import { api } from '../services/api';
+
 export default {
   data: () => {
     return {
@@ -36,7 +37,7 @@ export default {
     }
   },
   async created() {
-    const { data } = await axios.get('https://api.spacexdata.com/v4/rockets');
+    const { data } = await api.get('rockets');
     data.forEach(rocket => {
       this.rockets.push(rocket);
     });

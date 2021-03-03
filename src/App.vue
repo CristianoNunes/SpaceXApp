@@ -15,7 +15,7 @@
           <md-list-item>
             <md-icon>flight</md-icon>
               <router-link to="/">
-                <span class="md-list-item-text">Future Launches</span>
+                <span class="md-list-item-text linkMenu">Future Launches</span>
               </router-link>
           </md-list-item>
 
@@ -29,14 +29,14 @@
           <md-list-item>
             <md-icon>history_edu</md-icon>
             <router-link to="/HistoricalEvents">
-              <span class="md-list-item-text">Historical Events</span>
+              <span class="md-list-item-text linkMenu">Historical Events</span>
             </router-link>
           </md-list-item>
 
           <md-list-item>
-            <md-icon :md-src="rocket" />
-            <router-link to="/Rockets">
-              <span class="md-list-item-text">Rockets</span>
+            <md-icon :md-src="rocket" />          
+              <router-link to="/Rockets">
+              <span class="md-list-item-text linkMenu">Rockets</span>
             </router-link>
           </md-list-item>
         </md-list>
@@ -72,5 +72,13 @@ export default {
   .md-drawer {
     width: 230px;
     max-width: calc(100vw - 125px);
+  }
+  .linkMenu {
+    color: black;
+    font-family: 'Roboto';
+    text-decoration: none;
+  }
+  .router-link-exact-active {
+    font-weight: bold;
   }
 </style>
