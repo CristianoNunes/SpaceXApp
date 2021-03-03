@@ -9,14 +9,14 @@
         <div class="md-title">{{launch.name}}</div>
         <div class="md-subhead">Release date of: {{launchDate}}</div>
         <div class="md-subhead">Mission Status: {{missionAccomplished}}</div>
-        <div class="md-subhead">Payload: </div>
+        <div class="md-subhead">Payload: {{getPayload}}</div>
         <div class="md-subhead">Crew: {{missionCrew}}</div>
       </md-card-header>
 
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
           <div>
-            <md-button>Action</md-button>
+            <!-- <md-button></md-button> -->
           </div>
 
           <md-card-expand-trigger>
@@ -35,9 +35,22 @@
 </template>
 
 <script>
+import axios from 'axios';
 import moment from 'moment';
 export default {
   props: ["launch"],
+  data:() => {
+    return {
+      payloads:[]
+    }
+  },
+  methods:{
+    getPayloadAPI: async function (payload) {
+      const { data } = await axios.get('https://api.spacexdata.com/v4/payloads/'+ payload);
+      this.payloads.push(data);
+      return this.payloads[0].name;
+    },
+  },
   computed: {
     changeSrcImg: function() {
       const rocket = require('../assets/rocket.png');
@@ -60,6 +73,11 @@ export default {
         return 'Not yet released';
       }
       return 'Mission Accomplished';
+    },
+    getPayload: function () {
+    const valuePayload = this.getPayloadAPI(this.launch.payloads);
+      console.log(valuePayload.name);
+      return valuePayload.name;
     },
     missionCrew: function() {
       if(this.launch.crew.length == 0){

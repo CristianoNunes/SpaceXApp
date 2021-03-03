@@ -13,23 +13,23 @@
 
         <md-list>
           <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
+            <md-icon>flight</md-icon>
             <span class="md-list-item-text">Future Launches</span>
           </md-list-item>
 
           <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
+            <md-icon>flight_land</md-icon>
+            <span class="md-list-item-text">Past Launches</span>
           </md-list-item>
 
           <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
+            <md-icon>history_edu</md-icon>
+            <span class="md-list-item-text">Historical Events</span>
           </md-list-item>
 
           <md-list-item>
-            <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
+            <md-icon :md-src="rocket" />
+            <span class="md-list-item-text">Rocket</span>
           </md-list-item>
         </md-list>
       </md-app-drawer>
@@ -45,9 +45,11 @@
 import Home from './pages/Home';
 export default {
   name: 'App',
+  
   data: () => {
     return {
       menuVisible: false,
+      rocket: require('./assets/rocket-icon.svg'),
     }
   },
   components: {
