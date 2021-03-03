@@ -35,14 +35,15 @@
       </md-app-drawer>
         
       <md-app-content>
-        <Home />
+        
+        <router-view path="$router.key" />
+
       </md-app-content>
     </md-app>
   </div>
 </template>
 
 <script>
-import Home from './pages/Home';
 export default {
   name: 'App',
   
@@ -52,9 +53,6 @@ export default {
       rocket: require('./assets/rocket-icon.svg'),
     }
   },
-  components: {
-    Home,
-  }
 }
 </script>
 

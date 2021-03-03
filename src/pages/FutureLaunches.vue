@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <span class="md-display-1 titleAlign">Home - Future Launches</span>
+    <span class="md-display-1 titleAlign">Future Launches</span>
     <div class="divSearch">
       <input type="text" class="searchInput" placeholder="Pesquisar por lançamento" v-model="search" />
       <md-button class="md-raised md-primary" @click="resultSearch">Search</md-button>
