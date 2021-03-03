@@ -9,7 +9,7 @@
         <div class="md-title">{{launch.name}}</div>
         <div class="md-subhead">Release date of: {{launchDate}}</div>
         <div class="md-subhead">Mission Status: {{missionAccomplished}}</div>
-        <div class="md-subhead">Payload: {{getPayload}}</div>
+        <!-- <div class="md-subhead">Payload: {{getPayload}}</div> -->
         <div class="md-subhead">Crew: {{missionCrew}}</div>
       </md-card-header>
 
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import moment from 'moment';
 export default {
   props: ["launch"],
@@ -44,13 +43,13 @@ export default {
       payloads:[]
     }
   },
-  methods:{
-    getPayloadAPI: async function (payload) {
-      const { data } = await axios.get('https://api.spacexdata.com/v4/payloads/'+ payload);
-      this.payloads.push(data);
-      return this.payloads[0].name;
-    },
-  },
+  // methods:{
+  //   getPayloadAPI: async function (payload) {
+  //     const { data } = await axios.get('https://api.spacexdata.com/v4/payloads/'+ payload);
+  //     this.payloads.push(data);
+  //     return this.payloads[0].name;
+  //   },
+  // },
   computed: {
     changeSrcImg: function() {
       const rocket = require('../assets/rocket.png');
@@ -74,11 +73,11 @@ export default {
       }
       return 'Mission Accomplished';
     },
-    getPayload: function () {
-    const valuePayload = this.getPayloadAPI(this.launch.payloads);
-      console.log(valuePayload.name);
-      return valuePayload.name;
-    },
+    // getPayload: function () {
+    // const valuePayload = this.getPayloadAPI(this.launch.payloads);
+      
+    //   return valuePayload.name;
+    // },
     missionCrew: function() {
       if(this.launch.crew.length == 0){
         return 'No crew yet';
