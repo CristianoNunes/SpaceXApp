@@ -1,5 +1,11 @@
 # SpaceXApp
 
+### Used Libraries
+
+- Axios Cache Adapter
+- Vue Router Link
+- Vue Material
+
 ## Project setup
 ```
 npm install
