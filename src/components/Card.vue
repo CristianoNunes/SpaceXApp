@@ -14,9 +14,7 @@
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
           <div>
-            <md-button> <router-link to=""> View all data </router-link> </md-button>
           </div>
-
           <md-card-expand-trigger>
             <md-button>Details</md-button>
           </md-card-expand-trigger>
